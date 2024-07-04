@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>link</title>
+</head>
+<body style="margin: 40px;">
+    <table>Link style</table>
+    <style>
+    /* unvisited link */
+   a:link { color: red; }
+
+    /* visited link */
+    a:visited { color: green; }
+
+    /* mouse over link */
+    a:hover { color: hotpink; }
+
+    /* selected link */
+    a:active { color: blue; }
+    div > a:link, div > a:visited{
+        background-color: #f44336;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    div > a:hover, div >a:active{
+        background-color: red;
+    }
+    </style>
+<body style="margin: 40px;">
+    <h2>Link style</h2>
+    <a href="#">Link style</a>
+    <h2>link buttion</h2>
+    <div>
+        <a href="#=" target="_blank">이것은 링크입니다.</a>
+    </div>
+
+</body>
+</body>
+</html>
