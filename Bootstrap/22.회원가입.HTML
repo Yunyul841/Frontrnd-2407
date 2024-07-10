@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-image: url('../Bootstrap/img/dog.jpg');}
+    </style>
+</head>
+<body>
+    <title>회원가입</title>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        회원가입
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="username">사용자 이름</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="사용자 이름을 입력하세요">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">이메일 주소</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="이메일 주소를 입력하세요">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">비밀번호</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호를 입력하세요">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password">비밀번호 확인</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="비밀번호를 다시 입력하세요">
+                            </div>
+
+                            <div class="form-group d-flex justify-content-end"> <!-- Added d-flex and justify-content-end for right alignment -->
+                                <button type="submit" class="btn btn-primary mr-2">가입</button> <!-- Added mr-2 for margin between buttons -->
+                                <button type="reset" class="btn btn-secondary">취소</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
