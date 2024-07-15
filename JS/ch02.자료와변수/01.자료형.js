@@ -47,3 +47,4 @@ console.log(x > 0 && x < 8);
 console.log(typeof hello, typeof(a), typeof(true));           // string, number, boolean
 
 let y = a + -b;       // + : binary operator, - : unary operator
+console.log(y);
