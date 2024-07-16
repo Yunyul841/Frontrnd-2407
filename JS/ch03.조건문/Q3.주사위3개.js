@@ -55,3 +55,6 @@ else {
 }
 console.log(dice1, dice2, dice3,  '==>', prize);
 
+// &&는 둘다 참인경우만 참
+// ||는 둘다 거짓인 경우에만 거짓
+
