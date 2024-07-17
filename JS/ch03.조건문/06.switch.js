@@ -41,4 +41,5 @@ console.log(`점수: ${score}, 학점: ${grade}`);
 			grade = 'D';  + sign; break;
 		default:
 			grade = 'F';
+			
 }
