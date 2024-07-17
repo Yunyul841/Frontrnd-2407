@@ -18,7 +18,7 @@
 					line += '&nbsp;';
 				for (let k = 0; k < 2 * i + 1; k++)
 					line += '*';
-			diamond += line + '<br>';
+				diamond += line + '<br>';
 			}
 		for (let i = N - 1; i >= 0; i--) {
 			let line = '';
@@ -28,7 +28,7 @@
 				line += '*';
 			diamond += line + '<br>';
 			}
-			let resultTag = document.getElementById('resuit');
+			let resultTag = document.getElementById('result');
 			resultTag.innerHTML = diamond;
 		}
 	</script>
