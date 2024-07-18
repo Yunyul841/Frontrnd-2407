@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이 계산</title>
+    <style>
+        input, button { padding: 5px; }
+    </style>
+</head>
+<body>
+
+<h1>나이 계산</h1>
+
+<p id="ageResult"></p>
+
+<script>
+    function calculateAge(birthDate) {
+        var today = new Date();
+        var birthDate = new Date(birthDate);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var monthDiff = today.getMonth() - birthDate.getMonth();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        return age;
+    }
+
+    // 예시: 생일이 2000년 7월 1일인 경우
+    var birthDate = new Date('2000-07-01');
+    var age = calculateAge(birthDate);
+
+    var ageResultElement = document.getElementById('ageResult');
+    ageResultElement.textContent = `생일이 ${birthDate.getFullYear()}년 ${birthDate.getMonth()+1}월 ${birthDate.getDate()}일인 경우, 나이는 ${age}세입니다.`;
+</script>
+
+</body>
+<body style="margin: 40px;">
+    <h3>나이계산</h3>
+	<hr>
+	<input type="text" id="num" placeholder="숫자를 입력하세요.">
+    <button onclick="(calculateAge)">확인</button>
+    
+</body>
+</html>

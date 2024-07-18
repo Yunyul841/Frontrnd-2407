@@ -46,7 +46,7 @@ for(let i = 0; i < 6; i++) {
 console.log(diceArray);
 
 // 6. 구구단
-for(let i = 1; i < 10; i++) {
+for(let i = 1; i < 10; i++) {    
 	for(let k = 1; k < 10; k++){
 		console.log(`${i} X ${k} = ${i*k}`);
 	}
@@ -73,3 +73,5 @@ for (let i = N - 1; i >= 0; i--){
 		line += '*';
 	console.log(line);
 }
+
+
