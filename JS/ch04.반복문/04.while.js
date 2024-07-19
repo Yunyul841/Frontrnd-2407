@@ -22,3 +22,4 @@ while (sumDice <= 21) {
 console.log(diceArray);
 console.log(sumDice);
 
+console.log('time');
