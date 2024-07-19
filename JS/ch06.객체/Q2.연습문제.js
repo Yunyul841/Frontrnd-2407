@@ -37,6 +37,7 @@ function displayDigitCounts() {
     }
 	
     console.log(result);
+	
 }
 displayDigitCounts();
 // 함수 호출하여 결과 출력
