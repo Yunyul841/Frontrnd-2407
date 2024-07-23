@@ -13,7 +13,7 @@ console.log(`${dice} 은/는 ${resuit} 입니다.`);
 let evenOdd = dice % 2 == 0 ? '짝수' : '홀수';         // 조건식 ? 참일떄의 값 : 거짓일떄의 값
 console.log(`${dice} 은/는 ${evenOdd} 입니다.`);
 
-let smalibig = dice <=3 ? '작은수' : '큰수';
+let smalibig = dice <=3 ? '작은 수' : '큰수';
 console.log(`${dice} 은/는 ${smalibig} 입니다.`);
 
 let score = Math.ceil(Math.random() * 50) + 50; 

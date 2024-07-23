@@ -21,7 +21,7 @@ else {
 	else
 	age = tYear - bYear - 1;
 }
-console.log(`${bYear}-${bMonth}-${bDay}, 나이: ${age}`);
+console.log(` 생일: ${bYear}-${bMonth}-${bDay}, 나이: ${age}`);
 
 
 // if(tMonth == bMonth){
