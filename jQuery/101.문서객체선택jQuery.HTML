@@ -4,17 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>문서객체 선택</title>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 	<script>
 		// 첫번째 h1 태그의 배경색을 yellow로
-		const h1= document.getElementById('h1');
-		h1.innerText = 'H1';
-		h1.style.backgroundColor = 'yellow';
 		
-		window.onload = () => {
-			
-			// $(document).ready(() => {
-			// 	$('h1').css('backgroundColor', 'yellow');
-			// });
+			$(document).ready(() => {
+			$('#header1').text('Header NO.3')
+						.css('backgroundcolor', 'yellow')
+						.css('color', 'red');
 
 			// 모든 h1 태그의 글자색을 red로
 			let h1Array = document.querySelectorAll('h1');
@@ -31,7 +29,7 @@
 
 			// 모든 글자의 크기를 2배로
 			document.body.style.fontSize = '2rem';
-	}
+			})
 	</script>
 </head>
 <body style="margin: 40px;">
