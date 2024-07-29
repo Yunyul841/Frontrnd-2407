@@ -11,13 +11,17 @@
 			let addr = '경기도 수원시 영통구 도청로 30(이의동)';
 			let url = `${base_url}?query=${encodeURIComponent(addr)}`;
 
-			  // 헤더 :  Authorization: KakaoAK ${Rest_API_KEY}
+			  // 헤더 :  Authorization: KakaoAK ${Rest_AP}
 			let header =  { Authorization: `KakaoAK ${kakaoRestkey}` };
 
 			fetch(url, { headers: header})
 			.then(response => response.json())
 			.then(result => {
 				console.log(result);
+				let lat = result.documents[0].y;
+				let lon = result.documents[0].x;
+				document.getElementById('lat').innerHTML = lat;
+				document.getElementById('lon').innerHTML = lon;
 			})
 			.catch(error => {
 				console.log(error);
