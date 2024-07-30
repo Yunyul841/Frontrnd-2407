@@ -27,7 +27,6 @@
 					.then(result => {
 						// console.log(result);
 						let roadAddr = result.results.juso[0].roadAddr;
-						document.getElementById('place').innerHTML = roadAddr;
 
 						let kakaoUrl = `${kakaoBaseUrl}?query=${encodeURIComponent(roadAddr)}`;
 						let header =  { Authorization: `KakaoAK ${kakaoRestkey}`};
@@ -40,7 +39,7 @@
 										document.getElementById('lat').innerHTML = '' +lat;
 										document.getElementById('lon').innerHTML = String(lon);
 
-										drawMap('경기도청', lat, lon);
+										drawMap(place, lat, lon);
 									})
 									.catch(error => {
 										console.log(error);
