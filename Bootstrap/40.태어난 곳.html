@@ -7,20 +7,95 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/fdb840a8cc.js" crossorigin="anonymous"></script>
+  <scrip src="https://kit.fontawesome.com/fdb840a8cc.js" crossorigin="anonymous"></script>
+  <title>마커에 클릭 이벤트 등록하기</title>
   <style>
     * { font-family: 'Noto Sans KR', sans-serif; }
     a { text-decoration: none; }
-    a {color: inherit;}
+    a { color: inherit;}
   </style>
+  <script>
+		window.onload = () => {
+			const kakaoScript = document.createElement('script');
+			kakaoScript.src =`http://dapi.kakao.com/v2/maps/sdk.js?appkey=05f186eaf2e952df68d64a889449502c&autoload=false`;
+			kakaoScript.onload= () => {
+					kakao.maps.load(() => { });
+			};
+			document.head.appendChild(kakaoScript);
+
+				let place = '천안';	
+				let roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
+				let kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
+				let params1 =  'currentPage=1&countPerPage=5';
+				let params2 = `keyword=${encodeURIComponent(place)}`;	// 한글은 반드시 인코딩해주어야함
+				let params3 = `confmKey=devU01TX0FVVEgyMDI0MDcyOTExMTQwMDExNDk2OTA=&resultType=json`;
+				let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`;
+
+				fetch(roadUrl)
+					.then(response => response.json())	
+					.then(result => {
+						// console.log(result);
+						let roadAddr = result.results.juso[0].roadAddr;
+
+						let kakaoUrl = `${kakaoBaseUrl}?query=${encodeURIComponent(roadAddr)}`;
+						let header =  { Authorization: `KakaoAK 6af4543743369c68377f295db4b0c181`};
+						fetch(kakaoUrl, { headers: header })
+									.then(response => response.json())
+									.then(result => {
+										// console.log(result);
+										let lat = parseFloat(result.documents[0].y);
+										let lon = parseFloat(result.documents[0].x);
+
+										drawMap(place, lat, lon);
+									})
+									.catch(error => {
+										console.log(error);
+									});
+				
+					});
+
+				// document.querySelector('p').innerHTML = url;
+		};
+		
+		function drawMap(place ,lat, lon) {
+			console.log(place, lat, lon);
+			let container = document.getElementById('map'); 
+			let position = new kakao.maps.LatLng(lat, lon);
+			let options = { 
+				center : position,
+				level: 9
+			};
+			let map = new kakao.maps.Map(container, options); 
+
+			// 마커 생성
+			let marker = new kakao.maps.Marker({
+				map: map,
+				position: position				// position으로 해도 됨
+			});
+
+			// 인포윈도우 생성
+			let infowindow = new kakao.maps.InfoWindow({
+						content : `<div style="padding:5px;">${place} World!</div>`
+			});
+			// 마우스오버 이벤트, 마우스아웃 이벤트 등록
+			kakao.maps.event.addListener(marker, 'mouseover', () => {
+				infowindow.open(map, marker);
+			});
+			// 마우스오버 이벤트, 마우스아웃 이벤트 등록
+			kakao.maps.event.addListener(marker, 'mouseover', () => {
+				infowindow.close();
+			});
+		};
+		
+	</script>
 </head>
 <body>
-      <!-- Main 영역: 페이지마다 이 부분만 채워줌 -->
       <div class="col-9">
         <h3><strong>내가 태어난 곳</strong></h3>
         <hr>
         <div class="row">
           <div class="col">
+            <div id="map" style="width: 600px; height: 400px; margin-top: 20px;"></div>
             <p>저는 충청남도 천안에서 태어나서, 어린 시절의 기억은 거의 없으며.</p>
             <p>태어나고 1~2년 후에는 경기도 이천으로 이사를 가서 살았으며, 그곳에서의 생활도 잘 기억하지 못합니다.</p>
             <p>얼마 지나지 않아 강원도 원주로 이사를 와서 여러 해를 거주했습니다.</p>
@@ -28,9 +103,8 @@
             <p>여러 곳을 오가며 살아온 삶이지만,  원주의 추억만 남아있습니다!</p>
           </div>
           <div class="col">
-            <img src="./img/map 2.png" alt="나도몰랑" class=" border border-3 rounded "style="width: 400px; float:left; ">
           </div>
-        </div>
+          </div>
       </div>
 </body>
 </html>
