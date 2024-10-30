@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        width: 1280px;
+        height: 1024px;
+        border: 3px solid;
+        margin: 0px; /* body 바깥쪽 document랑 사이*/
+    }
+    header {
+        /* display: inline-block; */
+        float: left;
+        width: 1280px;
+        height: 100px;
+        padding-top: 20px;
+        box-sizing: border-box; /* 고정시켜서 늘어나지 않음*/
+        background-color: wheat; /* 영역체그 */
+    }
+    nav {
+        /* display: inline-block; */
+        float: left;
+        width: 1280px;
+        height: 30px;
+        background-color: rgb(130, 195, 238);
+    }
+    section {
+        /* display: inline-block; */
+        float: left;
+        width: 70%;
+        height: 400px;
+        padding-top: 10px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        background-color: thistle;
+    }
+    aside {
+        /* display: inline-block; */
+        float: left;
+        width: 30%;
+        height: 400px;
+        background-color: sienna;
+    }
+    #display {
+        display: inline-block;
+        width: 100%;  /* 부모크기만큼*/
+        height: 200px;
+        background-color: sandybrown;      
+    }
+    footer {
+        /* display: inline-block; */
+        float: left;
+        width: 100%;
+        height: 30px;
+        border: 1px dotted; 
+        text-align: center; /* 글자 가운데 정렬*/
+    }
+    .header_01 { /* 여기 기준으로 마진은 header에 거리*/
+        width: 1000px;
+        height: 30px;
+        margin: 0px auto; /* 가운데 정렬의미 */
+        /*border: 1px solid;*/
+        text-align: center;
+    }
+    .header_01 h2 {
+        display: inline;
+        color: darkslategrey;
+    }
+    /* nav css*/
+    nav ul li {
+            display: inline-block;
+            width: 100px;
+            border: 1px solid;
+            text-align: center; 
+        }
+        nav ul {
+            /* border: 1px solid; */
+            margin-top: 3px;
+            text-align: center;
+        }
+        .display_01 {
+            margin-top: 10px;
+            width: 24%;
+            height: 150px;
+            margin-left: 10px;
+            float: left;
+            border: 1px solid;
+        }
+        aside div {
+            width: 300px;
+            height: 316px;
+            margin: 0px auto;
+            padding: 42px;
+            background-color: burlywood;
+        }
+        table {
+            border: 1px solid;
+            width: 300px;
+            height: 150px;
+        }
+        tr, td, th {
+            border: 1px solid;
+        }
+        td {
+            text-align: center;
+        }
+        th {
+            background-color: aquamarine;
+        }
+        th:hover {
+            background-color: blueviolet;
+        }
+        
+</style>
+
+<body>
+    <!-- <div id = "header"></div> --> 
+    <header> <!-- 시멘틱 태그라 한다.-->
+        <div class="header_01">
+            <h2>프로그램</h2>
+        </div>
+
+        <div class="header_01">
+            <form action=""method=""> <!-- 중요하다.-->
+                <input type="text" size="50">
+                <input type="submit" value="search">
+            </form>
+        </div>
+    </header> 
+   
+    <nav>
+        <ul> <!-- 목록태그 ul의 자식은 4개-->
+            <li><span>안</span></li>
+            <li><span>녕</span></li>
+            <li><span>하</span></li>
+            <li><span>세</span></li>
+            <li><span>요</span></li>
+
+        </ul>
+    </nav>
+
+    <section>
+        <div>
+            <span>
+            <img src="./img/sectionback.PNG"> <!-- 상대경로 지정방식 -->
+            <img src="./img/sectionback1.PNG.jpg"width="400px">
+            <!-- <img src="./img/sectionback1.PNG.jpg" alt=""> -->
+            <!--개발자는 src에서 상대경로(현재위치(.에)따라)와 절대경로
+                (경로가 루트(시작점)부터 지정)를 숙지한다.
+                이미지주소는 로컬에 있는 이미지나 웹에 있는 이미지 모두 가능.-->
+            </span>
+            </div>
+    </section>
+    
+    <aside>
+        <div>
+            <form action="" method="">
+            <table> <!-- 로그인 박스 -->
+                <tr><td colspan="2">환영합니다.</td></tr>
+                <tr><td>ID</td><td><input type="text"></td></tr>
+                <tr><td>PassWord</td><td><input type="password"></td></tr>
+                
+                <tr>
+                    <td colspan="2">
+                        <input type="button" value="가입">
+                        <input type="button" value="로그인">
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+    </aside>
+    
+
+    <div id ="display"> 
+        <div class="display_01">
+            <h3>이원재</h3>
+            <hr>
+            <p>중저음의 소유자</p>
+        </div>
+        <div class="display_01">
+            <h3>조준곤</h3>
+            <hr>
+            <p>국가권력급</p>
+        </div>
+        <div class="display_01">
+            <h3>정지용</h3>
+            <hr>
+            <p>자전거맨</p>
+        </div>
+        <div class="display_01">
+            <h3>최진석</h3>
+            <hr>
+            <p>롤체 깐부</p>
+        </div>
+    </div>
+    
+
+        
+        <footer>footer</footer>
+
+</body>
+
+</html>
