@@ -27,6 +27,10 @@
     function test(){    // 자바스크립트 함수 정의
         // 정의 : 매개변수 고려, 리턴값을 정의 하지않는다.
         alert("클릭댐");
-
+        var a = document.getElementById('id').value;
+        var b = document.querySelector('#name').value;
+        var c = document.getElementsByTagName('h1')[0];
+        c.innerText =a+b;
+        c.style.color='blue'
     }
 </script>
