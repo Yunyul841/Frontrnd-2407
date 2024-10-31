@@ -38,14 +38,10 @@ div{
 </style>
 
 
-
-
-
-
-
 <body>
     <div id ="display">
-        <input type="text" size="10px"height="20px">
+        <!-- <input type="text" size="10px"height="20px"> -->
+        <input type="text" id="id">
         <button type="button"style="font-size: 25px;">1</button>
         <button type="button"style="font-size: 25px;">2</button>
         <button type="button"style="font-size: 25px;">3</button>
@@ -58,11 +54,24 @@ div{
         <button type="button"style="font-size: 25px;">+</button>
         <button type="button"style="font-size: 20px;">-</button>
         <button type="button"style="font-size: 25px;">*</button><br>
-        <button type="button" style="display: inline-block;">=</button>
+        <!-- <button type="button" style="display: inline-block;">=</button> -->
         <!-- <input type="button" style="display: inline-block;" value="="> -->
-        
+        <input type="button" value="=" onclick="test()">
     </div>
-    
-   
+    <form action="goServer"method="get">
+      <!-- <input type="button" id="id"><br>
+      <input type="button" id="name"><br> -->
+      <!-- <input type="submit" value="전송"> -->
+  </form>
+  
 </body>
 </html>
+<script>
+  function test(){
+    alert(클릭);
+    var a = document.getElementById('id').value;
+    var b = document.querySelector('name').value;
+    var c = document.getElementsByTagName('h1')[0];
+    c.innerText = a+b;
+  }
+</script>
