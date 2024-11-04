@@ -17,12 +17,45 @@
 </style>
 <script>
     function sfun(){
-        var w = document.getElementById("abc").innerHTML;  // 본문을 저장할 변수 선언
-        var sw = document.getElementById("sword").value;   // 검색어를 저장할 변수 선언  
-        var ab = document.getElementsByClassName("swordspan")
+        var w = document.getElementById("abc").innerHTML;  
+        // 본문을 저장할 변수 선언
+        var sw = document.getElementById("sword").value; 
+          // 검색어를 저장할 변수 선언 
+        // alert(w);
+        // alert(sw);
+        // alert(typeof(W)); // 중간 단위 테이스 성격인데... 이런걸 하면 아이디어가 나올 수 있음.
+        // alert(typeof(sw));
+        // 문자열이구.. sw문자열이 w에 몇번 있는지 확인
+        // 자바스크립트의 문자열 함수를 찾아 봅니다
+        // alert(w.indexOf(sw));
+        // alert(w.indexOf(SW,10)); // 위치를 지정할 수 있다.
+        // indexOf : 메서드명, 기능, 리턴값이 무엇인지?
+        // 리턴갑은 숫자.
         
+            w = w.replaceAll("<span class=\"aa\">","");
+            w = w.replaceAll("</span>","");
+            alert(w);
+            w=w.replaceAll(sw,"<span class=\"aa\">"+sw+"</span>");
+            alert(w);
+            document.getElementById("abc").innerHTML=w;
+        /*var cnt = 0;
+        for(let i = 0; i < w.length; i++) {
+            var kk = w.indexOf(sw,i);
+            if(kk != -1){
+                cnt++;
+                i=kk;   // kk값이 -1이 아니라면 위치값 다음부터 
+                        // 검색하면 되니까 i값을 변경해 준다.
+            }
+        }
+        alert(cnt + "있습니다.")*/
+
     }
 </script>
+<style>
+    .aa {
+        background-color: yellow;
+    }
+</style>
 
 <body>
 <div id="abcd">
