@@ -9,37 +9,71 @@
 <body>
     <h1> 주문메뉴 </h1>
     <div id="info">
-
     </div>
     메뉴선택 <input type="text" id="inputMenu">
+    수량 <input type="text" id = "inputQuantity">개
     <input type="button" onclick="order()" value="주문">
-    <br>주문정보 <div id="order_info"></div>
+    <br>
+    주문정보 
+    <div id="order_info">
+        <table id = "orderList">
+            <tr>
+                <th>선택</th>
+                <th>메뉴</th>
+                <th>수량</th>
+            </tr>
+        </table>
+        <button id="deleteBtn">선택삭제</button>
+    </div>
     <hr>
 </body>
 <script>
+    document.getElementById("deleteBtn").addEventListener('click',()=>{
+        // element를 지정하여 이벤트 리스너처리, 처리는 람다식으로 코딩
+        // alert(orderList.rows.length);
+        for(let i=1; i < orderList.rows.length; i++){
+            // console.log(orderList.rows[i]);
+            // console.log(orderList.rows[i].cells.children[0].checked);
+            if(orderList.rows[i].cells[0].children[0].checked){
+                orderList.deleteRow(i); 
+                i--;
+            }
+        }
+    })
+    // jquery 설치는 cdn방식
+    // $('#deleteBtn').on('click',()=>{   
+    // })
     var menu = ['짜장면','볶음밥','탕수육']
-    menu.push('군만두');
+    menu.push('군만두');// 메뉴 추가
     var pan = document.getElementById('info');
     // alert(menu[0]);
     var menu_list = '';
     // for(let i = 0; i < menu.length; i++){
     //     menu_list += menu[i] + " |  "
     // }
-    for(m of menu){
+    for(m of menu) {
         menu_list += m + " | "
     }
     // alert(menu_list)
     pan.innerHTML = menu_list;
 
     function order(){
-        let input =document.getElementById("inputMenu").value;
+        let input = document.getElementById("inputMenu").value;
+        let quantity = document.getElementById("inputQuantity").value; 
         for(m of menu){
             if(input == m ){
                 // let kk = confirm("주문할까요"); 
                 // alert(kk); // confirm 메서드의 리턴값 확인
-                if(confirm("주문할까요")){
-                    let viewpan = document.getElementById('order_info');
-                    viewpan.innerHTML="<span>" + input + "</span>";
+                if(confirm("주문할까요\n"+input+" "+quantity+"개")){
+                    // orderList 테이블 객체에 row를 추가한다.
+                    // table row를 추가한다.
+                    let newOrder = orderList.insertRow(); // row만든기
+                    let cell1 = newOrder.insertCell(0); // 컬럼만들기
+                    let cell2 = newOrder.insertCell(1); // 컬럼만들기
+                    let cell3 = newOrder.insertCell(2); // 컬럼만들기
+                    cell1.innerHTML="<input type=\"checkbox\">";
+                    cell2.innerHTML=input;
+                    cell3.innerHTML=quantity+"개"
                 }else{
                     alert("주문을 취소합니다.")
                 }
@@ -74,10 +108,9 @@
     
 </script>
 <style>
-    .info {
+     /* {
         background-color: blue;
-        color: white;
 
-    }
+    } */
 </style>
 </html>
