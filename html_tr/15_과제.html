@@ -251,6 +251,7 @@
                 </tr>          
             </thead>
             <tbody>
+              ... 
                 <tr class="cart__list__detail">
                     <td style="width: 40%;"><input type="text" id="goodsInfo" size="40"></td>
                     <td class="cart__list__option" style="width: 27%;">
@@ -272,9 +273,6 @@
   </section>
 </body>
 
-
-
-
 <script>
 // 위 코드에 기능추가
 // 1. 장바구니 상품 등록
@@ -283,25 +281,21 @@
 // 4. 상품리스트에 올라가면 자동으로 계산하기
 
 
-var pan = document.getElementById('allChk');
-pan.innerHTML = cart__list;
+
+function allChk1() {
+  let 
+}
 
 function addRow(){
   let info = document.getElementById('goodInfo').value
   let cnt = document.getElementById('goodsCnt').value
   let price = document.getElementById('goodsPrice').value
   let div = document.getElementById('goodsDlv').value
+
+  // for(){
+
+  // }
     
-  
-  // let newOrder = orderList.insertRow(); // row만든기
-    // let cell1 = newOrder.insertCell(0); // 컬럼만들기
-    // let cell2 = newOrder.insertCell(1); // 컬럼만들기
-    // let cell3 = newOrder.insertCell(2); // 컬럼만들기
-    // let cell4 = newOrder.insertCell(3);
-    // let cell5 = newOrder.insertCell(4);
-    
-    for(let i = 0; i < cart__list.length; i++){
-      if(cart__list.rows[i].info[0].price[0].div[0]){
         let newOrder = orderList.insertRow(); // row만든기
         let cell1 = newOrder.insertCell(0); // 컬럼만들기
         let cell2 = newOrder.insertCell(1); // 컬럼만들기
@@ -313,15 +307,15 @@ function addRow(){
         cell3.innerHTML= cnt;
         cell4.innerHTML= price;
         cell5.innerHTML= div;
-      }else{
-        alert("쇼핑을 계속 하십시오~")
-      }
-      return;
-    }
+   
+      
+     
+  }
+  
     
   
 
-}
+
 
 </script>
 

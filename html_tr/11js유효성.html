@@ -11,18 +11,17 @@
             <span>ID</span><input type="text" id="id"> <!--자바스크립트에서 ID로 가져오기위해서-->
             <span>PassWord</span><input type="text" id="PassWord">
             <input type="button" value="전송" onclick="test()"> <!-- 유효성을 체크하기 위해 자바스크립트 사용-->
-            
         </form>
     </div>
 </body>
 
 <script>
     function test(){
-        let id = document.getElementById('id').value; // Object 한개를 가져온 것
+        let aa = document.getElementById('id').value; // Object 한개를 가져온 것
         let PassWord = document.getElementById('PassWord').value;
         // alert(ID + " / " + PassWord); 디버깅 확인하자.
         // console.log(id.length);
-        if(id.length < 8){
+        if(aa.length< 8){
             alert("ID는 8글자 이상이어야합니다.")
             return
         }
